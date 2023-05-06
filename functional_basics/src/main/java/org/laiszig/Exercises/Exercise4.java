@@ -1,5 +1,7 @@
 package org.laiszig.Exercises;
 
+//Print courses with names longer than 4 letters
+
 import java.util.List;
 
 public class Exercise4 {
