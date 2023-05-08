@@ -3,7 +3,7 @@ package org.laiszig.exercises;
 import java.util.List;
 
 //Find sum of odd numbers in a list
-public class Exercise3 {
+public class Exercise9 {
 
     public static void main(String[] args) {
 

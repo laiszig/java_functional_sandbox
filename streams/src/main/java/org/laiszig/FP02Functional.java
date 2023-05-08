@@ -1,5 +1,6 @@
 package org.laiszig;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class FP02Functional {
@@ -13,11 +14,16 @@ public class FP02Functional {
         System.out.println("--------");
         numbers.stream().reduce(Integer.MIN_VALUE, (x,y) -> x>y ? x:y);
 
+        System.out.println("----Print Distinct Numbers----");
         printDistinct(numbers);
-        System.out.println("--------");
+        System.out.println("----Sort Numbers----");
         sortNumbers(numbers);
-        System.out.println("--------");
+        System.out.println("----Sort Courses----");
         sortCourses(courses);
+        System.out.println("----Sort Courses in Reverse----");
+        sortReverseCourses(courses);
+        System.out.println("----Sort Courses By Length----");
+        sortByLengthCourses(courses);
 
     }
 
@@ -25,19 +31,6 @@ public class FP02Functional {
         System.out.println(aggregate + " " + nextNumber);
         return aggregate + nextNumber;
     }
-
-
-
-//    0 12
-//    12 9
-//    21 13
-//    34 4
-//    38 6
-//    44 2
-//    46 4
-//    50 12
-//    62 15
-//    77
 
     private static int addListFunctional(List<Integer> numbers) {
         return numbers.stream()
@@ -60,9 +53,22 @@ public class FP02Functional {
                 .forEach(System.out::println);
     }
 
-    private static void sortCourses (List<String> courses) {
+    private static void sortCourses (List<String> courses) { //Natural order
         courses.stream()
                 .sorted()
+                .forEach(System.out::println);
+    }
+
+    private static void sortReverseCourses (List<String> courses) {
+        courses.stream()
+                .sorted(Comparator.reverseOrder()) //Comparator, how can I compare 2 items in a list
+                .forEach(System.out::println);
+    }
+
+    private static void sortByLengthCourses (List<String> courses) {
+        courses.stream()
+//                .sorted(Comparator.comparing(str -> str.length()))
+                .sorted(Comparator.comparing(String::length)) //Comparator, how can I compare 2 items in a list
                 .forEach(System.out::println);
     }
 }
