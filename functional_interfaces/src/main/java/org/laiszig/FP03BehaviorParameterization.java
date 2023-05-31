@@ -19,9 +19,9 @@ public class FP03BehaviorParameterization {
         filterAndPrint(numbers, x -> x % 2 != 0);
     }
 
-    private static void filterAndPrint(List<Integer> numbers, Predicate<Integer> oddPredicate) {
+    private static void filterAndPrint(List<Integer> numbers, Predicate<Integer> predicate) {
         numbers.stream()
-                .filter(oddPredicate)
+                .filter(predicate)
                 .forEach(System.out::println);
     }
 }
