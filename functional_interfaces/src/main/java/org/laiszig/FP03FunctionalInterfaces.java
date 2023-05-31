@@ -17,7 +17,10 @@ public class FP03FunctionalInterfaces {
                 .map(squareFunction())
                 .forEach(printConsumer());
     }
-
+// Predicate - output boolean condition
+// Function - input and output - diferent or same type
+// Consumer - used when want to process the input, no output
+// Binary Operator - accepts two inputs and gives an output.
     /**
      * In Java, a Consumer is an interface that represents a function that takes an input argument
      * of one type and returns no result. The Java Consumer interface is also a functional interface,
