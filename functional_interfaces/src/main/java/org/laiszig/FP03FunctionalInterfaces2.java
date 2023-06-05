@@ -32,7 +32,5 @@ public class FP03FunctionalInterfaces2 {
         System.out.println("---------");
 
 
-
-
     }
 }
