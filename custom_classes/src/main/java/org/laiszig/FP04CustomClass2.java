@@ -19,9 +19,12 @@ public class FP04CustomClass2 {
             new Course("Docker", "DevOps", 92, 20000),
             new Course("Kubernetes", "DevOps", 91, 20000)
     );
-
-        Comparator<Course> comparingByNoOfStudentsIncreasing = Comparator.comparing(Course::getNoOfStudents);
-        Comparator<Course> comparingByNoOfStudentsDecreasing = Comparator.comparing(Course::getNoOfStudents).reversed();
+        //using comparingInt is more effective because there is no boxing and auto-boxing
+        Comparator<Course> comparingByNoOfStudentsIncreasing = Comparator.comparingInt(Course::getNoOfStudents);
+        Comparator<Course> comparingByNoOfStudentsDecreasing = Comparator.comparingInt(Course::getNoOfStudents).reversed();
+        Comparator<Course> comparingByNoOfStudentsAndReviewScore =
+                Comparator.comparingInt(Course::getNoOfStudents)
+                .thenComparingInt(Course::getReviewScore);
 
         System.out.println(courses2.stream()
                 .sorted(comparingByNoOfStudentsIncreasing)
@@ -29,6 +32,10 @@ public class FP04CustomClass2 {
 
         System.out.println(courses2.stream()
                 .sorted(comparingByNoOfStudentsDecreasing)
+                .collect(Collectors.toList()));
+
+        System.out.println(courses2.stream()
+                .sorted(comparingByNoOfStudentsAndReviewScore)
                 .collect(Collectors.toList()));
     }
 
