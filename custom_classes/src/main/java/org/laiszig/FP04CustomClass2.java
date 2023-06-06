@@ -37,6 +37,28 @@ public class FP04CustomClass2 {
         System.out.println(courses2.stream()
                 .sorted(comparingByNoOfStudentsAndReviewScore)
                 .collect(Collectors.toList()));
+
+        System.out.println(courses2.stream()
+                .sorted(comparingByNoOfStudentsAndReviewScore)
+                .limit(5) //show only 5 entries
+                .collect(Collectors.toList()));
+
+        System.out.println(courses2.stream()
+                .sorted(comparingByNoOfStudentsAndReviewScore)
+                .skip(3) //skips first 3
+                .limit(5)
+                .collect(Collectors.toList()));
+
+        System.out.println(courses2.stream()
+                .takeWhile(course -> course.getReviewScore()>=95));
+        //once an element breaks the criteria, it will skip all the others after
+
+        System.out.println(courses2.stream()
+                .dropWhile(course -> course.getReviewScore()>=95));
+        //as long as the condition is true, it will continue to drop the elements.
+        //once the condition is false, it will keep all the subsequent elements.
+
+
     }
 
 }
